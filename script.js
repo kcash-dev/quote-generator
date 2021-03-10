@@ -43,6 +43,7 @@ function newQuote() {
     
     let quoteString = quote.text.split(' ');
     quoteString.forEach(word => {
+        
         let newWord = `<div class="quote-word">${word}</div>`;
         splitText.push(newWord);
     });
