@@ -2,7 +2,6 @@ const quoteContainer = document.querySelector('#quote-container');
 const quoteText = document.querySelector('#quote');
 const authorText = document.querySelector('#author');
 const twitterBtn = document.querySelector('#twitter');
-const facebookBtn = document.querySelector('#facebook');
 const newQuoteBtn = document.querySelector('#new-quote');
 const loader = document.querySelector('#loader');
 
@@ -76,17 +75,12 @@ function tweetQuote() {
     window.open(twitterURL, '_blank');
 }
 
-// Share Quote - Facebook
-function shareQuote() {
-    const facebookURL = `http://facebook.com/sharer/sharer.php?u=, left=0,top=0,width=650,height=420,personalbar=0,toolbar=0,scrollbars=0,resizable=0')`;
-    window.open(facebookURL, '_blank');
-}
-
 // Get Word Meaning
 function dictionary(e) {
     let target = e.target;
+    let text = target.textContent.match(/[a-z]/gi).join('');
     target.classList.add('hover');
-    const dictionaryURL = `https://www.dictionary.com/browse/${target.textContent}?s=t`;
+    const dictionaryURL = `https://www.dictionary.com/browse/${text}?s=t`;
     window.open(dictionaryURL, '_blank');
 }
 
@@ -99,7 +93,6 @@ function getWiki() {
 // Event Listeners
 newQuoteBtn.addEventListener('click', newQuote);
 twitterBtn.addEventListener('click', tweetQuote);
-facebookBtn.addEventListener('click', shareQuote);
 authorText.addEventListener('click', getWiki);
 quoteText.addEventListener('click', dictionary);
 
